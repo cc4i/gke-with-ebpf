@@ -4,6 +4,33 @@
 This is a project to demostrate to improve observability and security of GKE with eBPF powered technologies. 
 
 ## Prerequisite
+1. Provision a GKE cluster for test environment.
+
+```bash
+
+export cluster_version="1.22.8-gke.200"
+export zone="asia-southeast1-b"
+
+gcloud container clusters create "gke-with-ebpf" \
+    --zone ${zone} \
+    --no-enable-basic-auth \
+    --cluster-version ${cluster_version} \
+    --release-channel "regular" \
+    --machine-type "n2d-standard-2" \
+    --image-type "COS_CONTAINERD" \
+    --disk-type "pd-standard" \
+    --disk-size "100" \
+    --metadata disable-legacy-endpoints=true \
+    --scopes "https://www.googleapis.com/auth/cloud-platform" \
+    --max-pods-per-node "40" \
+    --enable-ip-alias \
+    --enable-intra-node-visibility \
+    --enable-autoscaling --min-nodes "2" --max-nodes "6" \
+    --enable-dataplane-v2 \
+    --addons HorizontalPodAutoscaling,HttpLoadBalancing,GcePersistentDiskCsiDriver \
+    --enable-shielded-nodes
+
+```
 
 ## Pixie
 ## bpftrace

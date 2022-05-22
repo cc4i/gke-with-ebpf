@@ -4,5 +4,10 @@ import px
 # Load the last 30 seconds of Pixie's `conn_stats` table into a Dataframe.
 df = px.DataFrame(table='conn_stats', start_time='-30s')
 
+# Each record contains contextual information that can be accessed by the reading ctx.
+df.pod = df.ctx['pod']
+df.service = df.ctx['service']
+
 # Display the DataFrame with table formatting
 px.display(df)
+
