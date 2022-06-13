@@ -59,9 +59,12 @@ readelf -a hello.bpf.o
 
 
 ## Use Pixie to troubleshoot on GKE
-Install [Pixie](https://docs.pixielabs.ai/installing-pixie/install-guides/), which uses less than 5% of cluster CPU, and in most cases less than 2%. You need to install Pixie into your Kubernetes cluster for further exprimental.
+Use Pixie client to [install Pixie](https://docs.pixielabs.ai/installing-pixie/install-guides/), which comsume less than 5% of cluster CPU and in most cases less than 2%. You can use Pixie Cloud to expriment Pixie UI or host your own.
 
 ```bash
+# Install Pixie into Kubernetes.
+px deploy 
+
 # Install demo application
 px demo deploy px-sock-shop
 kubectl port-forward svc/front-end-internal -n px-sock-shop
