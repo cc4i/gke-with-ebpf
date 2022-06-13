@@ -82,3 +82,6 @@ px run px/sql_queries
 PxL
 
 ```
+
+## Play eBPF on MacOS
+[Brief introduction](./ebpf-macos/) to play eBPF on MacOS, not convenient for sure.
